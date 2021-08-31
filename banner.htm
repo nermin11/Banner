@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banner</title>
+    <style>
+        * { box-sizing: border-box;}
+            body { margin: 0;}
+            #banner {
+                position: relative;
+                width: 300px;
+                height: 600px;
+                border: 1px solid #666;
+                overflow: hidden;
+            }
+            #banner>div { position: absolute; }
+            #header{
+                width: 100%;
+                height: 100%;
+                background:linear-gradient(#e01212,#b81d1d);
+                animation-name: header;
+                animation-duration: 1s;
+                animation-fill-mode: forwards;
+            }
+            @keyframes header {
+                from {height: 100%; }
+                to {width: 100%;}
+            }
+            #div1{
+                width: 100%;
+                height: 0;
+                background:#c2c229;
+                bottom: 0;
+                animation-name: div1;
+                animation-delay: 1s;
+                animation-duration: 1s;
+                animation-timing-function: ease-out;
+                animation-fill-mode: forwards;
+            }
+            @keyframes div1 {
+                from {height: 0; bottom: 0; }
+                to {height: 20%; bottom: 0; }
+            }
+            #logo{
+                left: -80px;
+                width: 80px;
+                height: 77px;
+                background-image: url('img/logo.png');
+                top: 0;
+                animation: logo 2s ease 3s forwards;
+
+            }
+            @keyframes logo {
+                from {  transform: scale(0, 0) rotate(-720deg); opacity: 0; top:20px;left: 20px; }
+                to {transform: scale(1, 1) rotate(360deg); opacity: 1; top: 20px; left: 20px;}
+            }
+            #main{
+                width: 95px;
+                height: 68px;
+                background-image: url('img/copy_2.png');
+                right: -95px;
+                animation: main 2s ease-in-out 5s backwards;
+                animation-iteration-count: 3;
+
+            }
+            @keyframes main {
+
+                 from {transform:  rotate(-720deg);  top:20px;right: 20px; }
+                to {transform:  rotate(360deg);  top: 20px; right: 20px;}
+            }
+            #div2{
+                background-image: url('img/mc_wraps.png');
+                left: -30px;
+                top: -290px;
+                width: 93px;
+                height: 194px;
+                animation-name: div2;
+                animation-delay: 2s;
+                animation-duration: 5s;
+                animation-timing-function: ease-out;
+            
+            }
+            @keyframes div2 {
+                from{left:-30px; top:-290px;}
+                to{left: 30px; top: 290px;}
+            }
+            #div3{
+                background-image: url('img/copy_2_2.png');
+                z-index: 10;
+                right: -30px;
+                top: -290px;
+                width: 82px;
+                height: 147px;
+                animation-name: div3;
+                animation-delay: 2s;
+                animation-duration: 5s;
+                animation-timing-function: ease-out;
+            
+            }
+            @keyframes div3 {
+                from{right:-30px; top:-290px;}
+                to{right: 30px; top: 290px;}
+            }
+            #yazi{
+                top: 250px;
+                font:italic 1.8em Tahoma;
+                color: #fff;
+                text-align: center;
+               transform: rotate(10deg);
+                text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+            }
+            #yazi:hover{
+                background-image: linear-gradient(to right, red , yellow);
+            }
+            #mc{
+                background-image: url('img/unnamed.png');
+                width: 200px;
+                height: 147px;
+                top: 330px;
+                left: -200px;
+                animation-name: mc;
+                animation-delay: 7s;
+                animation-duration: 4s;
+                animation-timing-function: ease-in-out;
+                animation-fill-mode:forwards;
+
+            }
+            @keyframes mc {
+                from{left:-200px;}
+                to{left:100px;}
+            }
+            #scooter {
+                background-image: url('img/scooter.png');
+                width: 50px;
+                height: 46px;
+                top: 480px;
+                left: -100px;
+                animation-name: scooter;
+                animation-delay: 3s;
+                animation-duration: 17s;
+                animation-iteration-count: infinite;
+
+            }
+            @keyframes scooter {
+                from {left: -100px }
+                to {left: 300px }
+            }
+           
+
+            .glow-on-hover {
+                width: 100px;
+                height: 50px;
+                border: none;
+                outline: none;
+                color: #fff;
+                background: #dbce13;
+                cursor: pointer;
+                position: relative;
+                z-index: 0;
+                border-radius: 10px;
+            }
+
+            .glow-on-hover:before {
+                content: '';
+                background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+                position: absolute;
+                top: -2px;
+                left:-2px;
+                background-size: 400%;
+                z-index: -1;
+                filter: blur(5px);
+                width: calc(100% + 4px);
+                height: calc(100% + 4px);
+                animation: glowing 20s linear infinite;
+                opacity: 0;
+                transition: opacity .3s ease-in-out;
+                border-radius: 10px;
+            }
+
+            .glow-on-hover:active {
+                color: #f5dc00
+            }
+
+            .glow-on-hover:active:after {
+                background: transparent;
+            }
+
+            .glow-on-hover:hover:before {
+                opacity: 1;
+            }
+
+            .glow-on-hover:after {
+                z-index: -1;
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: #f1ee1c;
+                left: 0;
+                top: 0;
+                border-radius: 10px;
+            }
+
+            @keyframes glowing {
+                0% { background-position: 0 0; }
+                50% { background-position: 400% 0; }
+                100% { background-position: 0 0; }
+            }
+            .btn:hover {
+                background: #ffbc40;
+                box-shadow: 0 2px 2px rgb(238, 16, 16);
+            }
+            .btn:active>div{
+                width: 400px;
+                height: 400px;
+                top: .1em;
+            }
+            #order {
+                width: 100%;
+                bottom: -80px;
+                text-align: center;
+                animation: order 1s ease-out 5s forwards ;
+            }
+            #order>a{
+                display: inline-block;
+                font: 1em Arial;
+                text-decoration: none;
+                color: #fff;
+                padding: 8px 30px;
+                border-radius: 15px;
+                border: 1px dotted #b83e35;
+                background: linear-gradient(#ca2626, #d36b09);
+            }
+            @keyframes order {
+                0% {bottom: -80px }
+                95% {bottom: 35px }
+                100% {bottom: 30px }
+            }
+            #order1 {
+                width: 100%;
+                top: -80px;
+                text-align: right;
+                animation: order1 1s ease-out 12s forwards;          
+                  }
+            #order1>a{
+                display: inline-block;
+                font: 1em Arial;
+                text-decoration: none;
+                color: #e62a12;
+                margin: 15px;
+                padding: 8px 30px;
+                border-radius: .15em;
+            }
+            @keyframes order1 {
+                0% {top: -80px }
+                95% {top: 35px }
+                100% {top: 30px }
+            }
+    </style>
+</head>
+<body>
+    <div id="banner">
+        <div id="header"></div>
+        <div id="div1"></div>
+        <div id="logo"></div>
+        <div id="main"></div>
+        <div id="div2"></div>
+        <div id="div3"></div>
+        <div id="yazi">Same lunch every day?</div>
+        <div id="mc"></div>
+        <div id="scooter"></div>
+        <div id="order"><a href="" class="btn"><div></div>Your nearest McDonald's 🍔 🍟</a></div>
+        <div id="order1"><a href="" class="glow-on-hover">Order 👉</a></div>
+    </div>
+</body>
+</html>
